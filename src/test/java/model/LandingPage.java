@@ -6,13 +6,12 @@ import org.openqa.selenium.support.FindBy;
 
 public class LandingPage extends BasePage{
 
-    public LandingPage(WebDriver driver) {
-        super(driver);
-    }
-
     @FindBy(xpath = "//div[contains(text(),'Log In')]")
     private WebElement loginButton;
 
+    public LandingPage(WebDriver driver) {
+        super(driver);
+    }
 
     public SignInPage clickLogIN() {
         loginButton.click();

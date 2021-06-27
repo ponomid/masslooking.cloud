@@ -6,10 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class SignInPage extends LandingPage {
 
-    public SignInPage(WebDriver driver) {
-        super(driver);
-    }
-
     @FindBy(id = "1-email")
     private WebElement emailField;
 
@@ -19,16 +15,20 @@ public class SignInPage extends LandingPage {
     @FindBy(name = "submit")
     private WebElement loginButton;
 
+    public SignInPage(WebDriver driver) {
+        super(driver);
+    }
+
     public SignInPage fillEmail() {
         emailField.sendKeys("ponomid@ya.ru");
 
-        return new SignInPage(getDriver());
+        return this;
     }
 
     public SignInPage fillPass() {
         passField.sendKeys("Smmtool88");
 
-        return new SignInPage(getDriver());
+        return this;
     }
 
     public ProfilePage clickLogin() {

@@ -8,20 +8,19 @@ import org.testng.annotations.Test;
 
 public class IliaTest extends Base {
 
-    String valueOfReferralProfile;
-    String valueOfReferralAffiliated;
-
     @Test
     public void MainPageTest() {
-        AffiliatedPage affiliatedPage = new LandingPage(getDriver())
+        ProfilePage profilePage = new LandingPage(getDriver())
                 .clickLogIN()
                 .fillEmail()
                 .fillPass()
-                .clickLogin()
-                .getTextReferralOnProfile()
-                .clickAffiliatedPage()
-                .getTextReferralOnAffiliated();
+                .clickLogin();
+        String link1 = profilePage.getTextReferralOnProfile();
 
-        Assert.assertEquals(valueOfReferralProfile, valueOfReferralAffiliated);
+        AffiliatedPage affiliatedPage = new ProfilePage(getDriver())
+                .clickAffiliatedPage();
+        String link2 = affiliatedPage.getTextReferralOnAffiliated();
+
+        Assert.assertEquals(link1, link2);
     }
 }

@@ -1,19 +1,21 @@
 package model;
 
+import com.sun.jdi.Value;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ProfilePage extends SignInPage{
-    public ProfilePage(WebDriver driver) {
-        super(driver);
-    }
+public class ProfilePage extends LandingPage{
 
     @FindBy(xpath = "//span[contains(text(),'Affiliated program')]")
     private WebElement affiliatedProgram;
 
-    @FindBy(id = "root")
+    @FindBy(xpath = "//div/input[@type='text']")
     private WebElement referralLinkField;
+
+    public ProfilePage(WebDriver driver) {
+        super(driver);
+    }
 
     public AffiliatedPage clickAffiliatedPage() {
         affiliatedProgram.click();
@@ -21,10 +23,7 @@ public class ProfilePage extends SignInPage{
         return new AffiliatedPage(getDriver());
     }
 
-    public ProfilePage getTextReferralOnProfile() {
-        String valueOfReferralProfile = referralLinkField.getText();
-        return new ProfilePage(getDriver());
+    public String getTextReferralOnProfile() {
+        return referralLinkField.getAttribute("value");
     }
-
-
 }
