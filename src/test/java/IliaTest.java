@@ -2,7 +2,6 @@ import Base.Base;
 import model.AffiliatedPage;
 import model.LandingPage;
 import model.ProfilePage;
-import model.SignInPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,6 +19,7 @@ public class IliaTest extends Base {
         AffiliatedPage affiliatedPage = new ProfilePage(getDriver())
                 .clickAffiliatedPage();
         String link2 = affiliatedPage.getTextReferralOnAffiliated();
+
         System.out.println("link1= " + link1);
         System.out.println("link2= " + link2);
 
