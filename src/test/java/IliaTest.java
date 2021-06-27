@@ -20,6 +20,8 @@ public class IliaTest extends Base {
         AffiliatedPage affiliatedPage = new ProfilePage(getDriver())
                 .clickAffiliatedPage();
         String link2 = affiliatedPage.getTextReferralOnAffiliated();
+        System.out.println("link1= " + link1);
+        System.out.println("link2= " + link2);
 
         Assert.assertEquals(link1, link2);
     }

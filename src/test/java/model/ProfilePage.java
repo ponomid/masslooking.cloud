@@ -10,7 +10,7 @@ public class ProfilePage extends LandingPage{
     @FindBy(xpath = "//span[contains(text(),'Affiliated program')]")
     private WebElement affiliatedProgram;
 
-    @FindBy(xpath = "//div/input[@type='text']")
+    @FindBy(xpath = "//div/input[@value='https://masslooking.cloud?ref=4']")
     private WebElement referralLinkField;
 
     public ProfilePage(WebDriver driver) {
